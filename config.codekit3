@@ -9,11 +9,19 @@
   ],
   "creatorBuild" : "34214",
   "files" : {
+    "\/.gitignore" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/.gitignore",
+      "oF" : 1
+    },
     "\/.nova\/Configuration.json" : {
       "ft" : 524288,
       "oA" : 1,
       "oAP" : "\/build\/.nova\/Configuration-min.json",
-      "oF" : 0,
+      "oF" : 1,
       "oO" : 1,
       "oS" : 1
     },
