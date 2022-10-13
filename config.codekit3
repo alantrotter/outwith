@@ -55,6 +55,14 @@
       "oAP" : "\/build\/index.html",
       "oF" : 0,
       "oS" : 1
+    },
+    "\/test.txt" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/test.txt",
+      "oF" : 1
     }
   },
   "hooks" : [
