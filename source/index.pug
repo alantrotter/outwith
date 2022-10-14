@@ -6,18 +6,28 @@ html
     //- include _analytics.html
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="https://use.typekit.net/trs6gfm.css")
     link(href="css/styles.css", rel="stylesheet")
-    title
+    title Outwith – product and portrait photography in Edinburgh 
     meta(name="description",content="")
-    //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
-    //- script(src="extrascripts.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js")
+    script(src="js/extrascripts.js")
   
   body
-  header
-    h1 Hello
-    p I just want to get something in here to make sure all these apps are playing properly together
-  main
   
-  footer 
-    a(href="mailto:alantrotter@gmail.com") Contact
+    .photograph-container.product-photographs.on
+      img.main-photograph.on(src="files/large-photos/faithhopeandcarnage.jpg")
+      img.main-photograph(src="files/large-photos/foghornechoes.jpg")
+    .photograph-container.portrait-photographs
+      img.main-photograph.on(src="files/large-photos/AlanTrotter.jpg" data-contrast="light")
+      img.main-photograph(src="files/large-photos/AlanTrotter2.jpg")
+        
+    contents
+      h1
+        img.logo(src="img/outwith-logo.svg" alt="Outwith logo" title="Outwith logo")
+            
+      sidebar 
+        p Alan Nevens is a #[a(href="#" class="main-nav selected" data-category="product-photographs") product] & #[a(href="#" class="main-nav" data-category="portrait-photographs") portrait] photographer in Edinburgh
+        a(href="mailto:alantrotter@gmail.com" class="secondary-nav") About
+        a(href="mailto:alantrotter@gmail.com" class="secondary-nav") Contact
     
