@@ -17,25 +17,40 @@
 	display: block
 	
 	
-contents
-	display: flex
+.contents
+	width: 100vw
+	height: 100vh
+	padding: 20px
+	display: grid
+	grid-column-gap: 1em
+	grid-row-gap: 1em
+	grid-template-areas: "logo type-insert main-nav" "photo-nav type-insert secondary-nav"
+	grid-template-columns: 300px 1fr 330px
+	grid-template-rows: auto auto
 	
+.main-nav
+	grid-area: main-nav
+	margin: 40px 20px
+
+.secondary-nav
+	grid-area: secondary-nav
+	display: flex
+	flex-direction: column
+	margin: 40px 0
+	align-items: flex-start
+	align-self: end
 	
 h1
-	width: 25vw
-	max-width: 240px
-	margin: 40px 60px
+	grid-area: logo
+	width: 90%
+	margin: 50px 60px
 
 .logo
 	width: 100%
 	filter: invert(100%) sepia(4%) saturate(14%) hue-rotate(59deg) brightness(103%) contrast(106%)
 
-sidebar
-	width: 330px
-	height: 100vh
-	margin-left: auto
-	padding: 40px 20px 40px 0
+.photo-nav
+	margin: 0 0 54px 40px
+	grid-area: photo-nav
+	align-self: end
 	display: flex
-	flex-direction: column
-	align-items: flex-start
-	

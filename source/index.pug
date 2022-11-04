@@ -15,19 +15,26 @@ html
   
   body
   
-    .photograph-container.product-photographs.on
+    .photograph-container(data-category="product-photographs").on
       img.main-photograph.on(src="files/large-photos/faithhopeandcarnage.jpg")
       img.main-photograph(src="files/large-photos/foghornechoes.jpg")
-    .photograph-container.portrait-photographs
-      img.main-photograph.on(src="files/large-photos/AlanTrotter.jpg" data-contrast="light")
+      img.main-photograph(src="files/large-photos/publicationpile.jpg")
+      img.main-photograph(src="files/large-photos/publicationpile2.jpg")
+    .photograph-container(data-category="portrait-photographs")
+      img.main-photograph.on(src="files/large-photos/ambrose-parry.jpg", style="object-position: center 10%")
+      img.main-photograph(src="files/large-photos/AlanTrotter.jpg" data-contrast="light")
       img.main-photograph(src="files/large-photos/AlanTrotter2.jpg")
         
-    contents
+    .contents
       h1
-        img.logo(src="img/outwith-logo.svg" alt="Outwith logo" title="Outwith logo")
+        img.logo(src="img/outwith-logo.svg" alt="Outwith" title="Outwith")
             
-      sidebar 
-        p Alan Nevens is a #[a(href="#" class="main-nav selected" data-category="product-photographs") product] & #[a(href="#" class="main-nav" data-category="portrait-photographs") portrait] photographer in Edinburgh
-        a(href="mailto:alantrotter@gmail.com" class="secondary-nav") About
-        a(href="mailto:alantrotter@gmail.com" class="secondary-nav") Contact
-    
+      .main-nav
+        p Alan Nevens is a #[a(href="#" class="main-nav-link selected" data-category="product-photographs") product] & #[a(href="#" class="main-nav-link" data-category="portrait-photographs") portrait] photographer in Edinburgh
+      
+      .secondary-nav
+        a.secondary-nav-link(href="/about") About
+        a.secondary-nav-link(href="mailto:alantrotter@gmail.com") Contact
+      
+      .photo-nav
+  
