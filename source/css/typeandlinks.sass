@@ -1,0 +1,106 @@
+$fancy-colour: #feff00
+
+::selection
+	background-color: $fancy-colour
+	color: black
+
+p
+	font-family: bely,serif
+	font-weight: 400
+	font-style: normal
+	font-size: 0.8em
+	line-height: 1.5
+	margin: 0
+
+a
+	color: inherit
+	text-decoration: none
+	
+
+a.main-nav-link, a.secondary-nav-link
+	color: #000
+	font-family: bely-display,sans-serif
+	font-weight: 400
+	font-style: normal
+	letter-spacing: 0.03em
+	&.light
+		color: #fff
+		
+a.main-nav-link
+	position: relative
+	font-size: 2em
+	line-height: 1.1
+	display: inline-block
+	text-transform: uppercase
+	&:first-child
+		margin-top:0.1em
+
+.selected
+	&::before
+		content: ''
+		position: absolute	
+		width: 0
+		height: 0
+		top: 0.4em
+		border-top: 0.2em solid transparent
+		border-left: 0.2em solid black
+		border-bottom: 0.2em solid transparent
+		left: -0.4em
+		z-index: 20
+		transition: left 0.3s cubic-bezier(.07,.73,.15,.98)
+
+	&:hover::before
+		left: -0.3em
+	&:hover::after
+		left: -0.4em
+	
+
+a.main-nav-link:hover, a.secondary-nav-link:hover
+	background-color: $fancy-colour
+
+
+a.secondary-nav-link
+	display: inline-block
+	font-size: 1em
+	margin: 0
+	&:first-of-type
+		margin-top: auto
+		
+$photo-icon-size: 0.07em
+
+a.photo-icon, a.photo-icon::before
+	width: 0
+	height: 0
+	border: $photo-icon-size solid transparent
+	
+a.photo-icon
+	font-size: 4em
+	position: relative
+	border-bottom-color: black
+	margin: 0 0.08em
+	opacity: 0.4
+	
+	transform: rotate(0)
+	transition: rotate 0.3s cubic-bezier(.07,.73,.15,.98)
+	&::before
+		content: ''
+		position: absolute
+		left: -$photo-icon-size
+		top: $photo-icon-size
+		border-top-color: black
+	&.current, &:hover
+		opacity: 1
+	&:hover
+		transform: rotate(360deg)
+		
+.text p
+	font-family: brother-1816, sans-serif
+	font-weight: 300
+	font-size: 18px
+	margin-top: 12px
+.text img
+	width: 100%
+	margin-bottom: 10px
+	
+span.highlighted, a.highlighted
+	background-color: $fancy-colour

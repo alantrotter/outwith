@@ -6,18 +6,22 @@ html
     //- include _analytics.html
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(href="css/styles.css", rel="stylesheet")
-    title
+    link(rel="stylesheet" href="https://use.typekit.net/trs6gfm.css")
+    link(href="/css/styles.css", rel="stylesheet")
+    title Outwith – product and portrait photography in Edinburgh 
     meta(name="description",content="")
-    //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
-    //- script(src="extrascripts.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js")
+    script(src="/js/extrascripts.js")
   
   body
-  header
-    h1 Hello
-    p I just want to get something in here to make sure all these apps are playing properly together
-  main
+        
+    .contents
+      include _includes/_logo.pug
+      
+      include _includes/_nav.pug
+        
+      include _includes/product_photography.pug
+      include _includes/portrait_photography.pug
+      
+      .photo-nav
   
-  footer 
-    a(href="mailto:alantrotter@gmail.com") Contact
-    

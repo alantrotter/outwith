@@ -1,0 +1,65 @@
+.photograph-container, .main-photograph
+	display: none
+
+.photograph-container.on
+	display: block
+	
+	
+.contents
+	margin-inline: auto
+	max-width: 1800px
+	width: 100vw
+	height: 100vh
+	padding: 30px 30px 0 30px
+	display: grid
+	grid-column-gap: 2em
+	grid-row-gap: 0
+	grid-template-areas: "logo main-content main-nav" ". main-content main-nav" ". photo-nav main-nav"
+	grid-template-columns: 140px 1fr 178px
+	grid-template-rows: auto auto 30px
+	
+.nav-sidebar
+	grid-area: main-nav
+	display: flex
+	flex-direction: column
+	height: calc(100vh - 30px)
+	
+.main-nav
+	margin-top: 20px
+
+.secondary-nav
+	display: flex
+	flex-direction: column
+	align-items: flex-start
+	margin: auto 0 50px 0
+	
+h1
+	grid-area: logo
+	width: 90%
+	margin: 20px 10px
+	
+.logo
+	width: 100%
+
+.photo-nav
+	height: 30px
+	grid-area: photo-nav
+	display: flex
+	justify-self: center
+	padding-top: 6px
+	
+.photograph-container
+	grid-area: main-content
+	background-image: none
+	background-size: auto 100%
+	background-repeat: no-repeat
+	background-position: center
+
+.text
+	background-color: white
+	padding: 30px
+	width: 100%
+	max-width: 600px
+	grid-area: main-content
+	justify-self: center
+	padding-bottom: 60px
