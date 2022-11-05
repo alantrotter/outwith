@@ -7,34 +7,31 @@ html
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="https://use.typekit.net/trs6gfm.css")
-    link(href="css/styles.css", rel="stylesheet")
+    link(href="/css/styles.css", rel="stylesheet")
     title Outwith – product and portrait photography in Edinburgh 
     meta(name="description",content="")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js")
-    script(src="js/extrascripts.js")
+    script(src="/js/extrascripts.js")
   
   body
-  
-    .photograph-container(data-category="product-photographs").on
-      img.main-photograph.on(src="files/large-photos/faithhopeandcarnage.jpg")
-      img.main-photograph(src="files/large-photos/foghornechoes.jpg")
-      img.main-photograph(src="files/large-photos/publicationpile.jpg")
-      img.main-photograph(src="files/large-photos/publicationpile2.jpg")
-    .photograph-container(data-category="portrait-photographs")
-      img.main-photograph.on(src="files/large-photos/ambrose-parry.jpg", style="object-position: center 10%")
-      img.main-photograph(src="files/large-photos/AlanTrotter.jpg" data-contrast="light")
-      img.main-photograph(src="files/large-photos/AlanTrotter2.jpg")
         
     .contents
-      h1
-        img.logo(src="img/outwith-logo.svg" alt="Outwith" title="Outwith")
-            
-      .main-nav
-        p Alan Nevens is a #[a(href="#" class="main-nav-link selected" data-category="product-photographs") product] & #[a(href="#" class="main-nav-link" data-category="portrait-photographs") portrait] photographer in Edinburgh
+      include _includes/_logo.pug
       
-      .secondary-nav
-        a.secondary-nav-link(href="/about") About
-        a.secondary-nav-link(href="mailto:alantrotter@gmail.com") Contact
+      include _includes/_nav.pug
+        
+      .photograph-container.on(data-category="product-photographs")
+        img.main-photograph.on(src="files/large-photos/faithhopeandcarnage.jpg")
+        img.main-photograph(src="files/large-photos/foghornechoes.jpg")
+        img.main-photograph(src="files/large-photos/publicationpile.jpg")
+        img.main-photograph(src="files/large-photos/publicationpile2.jpg")
+      .photograph-container(data-category="portrait-photographs")
+        img.main-photograph.on(src="files/large-photos/ambrose-parry.jpg")
+        img.main-photograph(src="files/large-photos/tom-bw.jpg")
+        img.main-photograph(src="files/large-photos/tom-portrait.jpg")
+        img.main-photograph(src="files/large-photos/AlanTrotter.jpg")
+        img.main-photograph(src="files/large-photos/alys-portrait.jpg")
+        img.main-photograph(src="files/large-photos/AlanTrotter2.jpg")
       
       .photo-nav
   

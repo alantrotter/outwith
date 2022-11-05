@@ -1,20 +1,32 @@
 var photographycollection = [];
 var currentcategory;
 var currentcategoryname;
-var requestphotonumber
+var requestphotonumber;
+// const urlParams = new URLSearchParams(window.location.search);
+// const urlCategory = urlParams.get('category');
 
 
 $(document).ready(function() {
-	initialphotocountsetup();
-	navlinkclick();
+	if($('.photograph-container').length != 0) {
+		initialphotocountsetup();
+		navlinkclick();
+	}
+
+
 });
 
 
 function initialphotocountsetup() {
 	
+	
+	
 	//for each photograph container
 	$(".photograph-container").each(function(i){
+		
+		
+		// console.log('category from url is ' + urlCategory);
 
+		
 		//check if this is the first category and save in variable to add to object details
 		var isfirst;
 		if (i == 0) {
@@ -37,7 +49,7 @@ function initialphotocountsetup() {
 				
 	});
 	
-	//set variable currentcategory to the initial current category (the first given)
+	//set variable currentcategory to the initial current category
 	currentcategory = photographycollection.find(collectiondetails => collectiondetails.iscurrent === 'yes');
 	//and set currentcategoryname for ease
 	currentcategoryname = currentcategory.photocategory;
@@ -46,6 +58,20 @@ function initialphotocountsetup() {
 	populatephotonavicons(currentcategory.numberofphotos);
 	
 	console.log('current category is ' + currentcategory.photocategory);
+	
+	$('a.main-nav-link[data-category="' + currentcategory.photocategory +'"]').addClass('selected');
+	
+	// localStorage.setItem('category', currentcategory.photocategory);
+	// const categoryfromstorage = localStorage.getItem('category');
+	// console.log(categoryfromstorage);  
+	
+	
+	//set up initial background image based on the 'on' photocontainer and image
+	var initialimage = $('.photograph-container.on > img.main-photograph.on').attr('src');
+	console.log('initial image is ' + initialimage);
+	$('.photograph-container.on').css('background-image', 'url("' + initialimage + '"');
+	
+	updatebackgroundimage();
 	
 }
 
@@ -71,9 +97,9 @@ function populatephotonavicons(number) {
 
 function navlinkclick() {
 	$('a.main-nav-link').click(function(e) {
-				
+		
 		//disable default action
-		e.preventDefault();
+		e.preventDefault();		
 		
 		//check if clicked category is the same as the current one and if so call change photo function
 		if ($(this).attr('data-category') == currentcategory.photocategory) {
@@ -144,8 +170,8 @@ function changecategory(requestedcategoryobject) {
 	//call the function to update the photo nav icons
 	populatephotonavicons(currentcategory.numberofphotos);
 	
-	//call the function to change link colours if necessary
-	changecoloursforlegibility();
+	updatebackgroundimage();
+	
 }
 
 function changephoto(requestedphoto) {
@@ -157,8 +183,12 @@ function changephoto(requestedphoto) {
 	currentphotographcontainer.find('img.main-photograph.on').removeClass('on');
 	currentphotographcontainer.children('img.main-photograph').eq(requestedphoto).addClass('on');
 	
+	//change the background image
+	
 	//update the currentphotonumber
 	currentcategory.currentphoto = requestedphoto;
+	
+	updatebackgroundimage();
 	
 	//update the photo icon by removing the old current class and adding to the new one
 	$('.photo-nav').find('.photo-icon.current').removeClass('current');
@@ -166,6 +196,12 @@ function changephoto(requestedphoto) {
 	
 }
 
-function changecoloursforlegibility(desiredcolours) {
-	console.log('checking that colours are right!' + desiredcolours);
+function updatebackgroundimage() {
+	//set up initial background image based on the 'on' photocontainer and image
+	var wantedimage = $('.photograph-container.on > img.main-photograph.on').attr('src');
+	$('.photograph-container.on').css('background-image', 'url("' + wantedimage + '"');
+	
 }
+
+
+

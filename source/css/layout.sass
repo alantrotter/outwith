@@ -1,56 +1,59 @@
-.photograph-container
-	position: absolute
-	z-index: -10
-	height: 100vh
-	width: 100vw
-
-.main-photograph
-	position: absolute
-	height: 100%
-	width: 100%
-	object-fit: cover
-
 .photograph-container, .main-photograph
 	display: none
 
-.on
+.photograph-container.on
 	display: block
 	
 	
 .contents
 	width: 100vw
 	height: 100vh
-	padding: 20px
+	padding: 30px 30px 0 30px
 	display: grid
-	grid-column-gap: 1em
-	grid-row-gap: 1em
-	grid-template-areas: "logo type-insert main-nav" "photo-nav type-insert secondary-nav"
-	grid-template-columns: 300px 1fr 330px
-	grid-template-rows: auto auto
+	grid-column-gap: 2em
+	grid-row-gap: 0
+	grid-template-areas: "logo main-content main-nav" ". main-content main-nav" ". photo-nav main-nav"
+	grid-template-columns: 140px 1fr 178px
+	grid-template-rows: auto auto 30px
 	
-.main-nav
+.nav-sidebar
 	grid-area: main-nav
-	margin: 40px 20px
-
-.secondary-nav
-	grid-area: secondary-nav
 	display: flex
 	flex-direction: column
-	margin: 40px 0
+	height: calc(100vh - 30px)
+	
+.main-nav
+	margin-top: 20px
+
+.secondary-nav
+	display: flex
+	flex-direction: column
 	align-items: flex-start
-	align-self: end
+	margin: auto 0 50px 0
 	
 h1
 	grid-area: logo
 	width: 90%
-	margin: 50px 60px
-
+	margin: 20px 10px
+	
 .logo
 	width: 100%
-	filter: invert(100%) sepia(4%) saturate(14%) hue-rotate(59deg) brightness(103%) contrast(106%)
 
 .photo-nav
-	margin: 0 0 54px 40px
+	height: 30px
 	grid-area: photo-nav
-	align-self: end
 	display: flex
+	justify-self: center
+	padding-top: 6px
+	
+.photograph-container
+	grid-area: main-content
+	background-image: none
+	background-size: auto 100%
+	background-repeat: no-repeat
+	background-position: center
+
+.text
+	width: 100%
+	grid-area: main-content
+	justify-self: center
