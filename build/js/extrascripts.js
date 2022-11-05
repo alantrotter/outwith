@@ -2,12 +2,12 @@ var photographycollection = [];
 var currentcategory;
 var currentcategoryname;
 var requestphotonumber;
-// const urlParams = new URLSearchParams(window.location.search);
-// const urlCategory = urlParams.get('category');
+const urlState = "";
 
 
 $(document).ready(function() {
 	if($('.photograph-container').length != 0) {
+		
 		initialphotocountsetup();
 		navlinkclick();
 	}
@@ -19,18 +19,17 @@ $(document).ready(function() {
 function initialphotocountsetup() {
 	
 	
-	
 	//for each photograph container
 	$(".photograph-container").each(function(i){
 		
-		
-		// console.log('category from url is ' + urlCategory);
-
 		
 		//check if this is the first category and save in variable to add to object details
 		var isfirst;
 		if (i == 0) {
 			isfirst = 'yes';
+			//turn on the first category
+			$(this).addClass('on');
+			
 		} else {
 			isfirst = 'no';
 		}
@@ -169,6 +168,10 @@ function changecategory(requestedcategoryobject) {
 	
 	//call the function to update the photo nav icons
 	populatephotonavicons(currentcategory.numberofphotos);
+	
+	const urlState = currentcategoryname;
+	//update the URL and add the state
+	history.pushState(urlState, '', '/' + urlState)
 	
 	updatebackgroundimage();
 	

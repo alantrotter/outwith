@@ -17,6 +17,8 @@ body {
 }
 
 .contents {
+  margin-inline: auto;
+  max-width: 1800px;
   width: 100vw;
   height: 100vh;
   padding: 30px 30px 0 30px;
@@ -73,7 +75,10 @@ h1 {
 }
 
 .text {
+  background-color: white;
+  padding: 30px;
   width: 100%;
+  max-width: 600px;
   grid-area: main-content;
   justify-self: center;
 }
@@ -155,7 +160,7 @@ a.secondary-nav-link:first-of-type {
 a.photo-icon, a.photo-icon::before {
   width: 0;
   height: 0;
-  border: 0.065em solid transparent;
+  border: 0.07em solid transparent;
 }
 
 a.photo-icon {
@@ -170,8 +175,8 @@ a.photo-icon {
 a.photo-icon::before {
   content: "";
   position: absolute;
-  left: -0.065em;
-  top: 0.065em;
+  left: -0.07em;
+  top: 0.07em;
   border-top-color: black;
 }
 a.photo-icon.current, a.photo-icon:hover {
@@ -179,4 +184,20 @@ a.photo-icon.current, a.photo-icon:hover {
 }
 a.photo-icon:hover {
   transform: rotate(360deg);
+}
+
+.text p {
+  font-family: brother-1816, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+.text img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+span.highlighted, a.highlighted {
+  background-color: #feff00;
 }

@@ -20,18 +20,8 @@ html
       
       include _includes/_nav.pug
         
-      .photograph-container.on(data-category="product-photographs")
-        img.main-photograph.on(src="files/large-photos/faithhopeandcarnage.jpg")
-        img.main-photograph(src="files/large-photos/foghornechoes.jpg")
-        img.main-photograph(src="files/large-photos/publicationpile.jpg")
-        img.main-photograph(src="files/large-photos/publicationpile2.jpg")
-      .photograph-container(data-category="portrait-photographs")
-        img.main-photograph.on(src="files/large-photos/ambrose-parry.jpg")
-        img.main-photograph(src="files/large-photos/tom-bw.jpg")
-        img.main-photograph(src="files/large-photos/tom-portrait.jpg")
-        img.main-photograph(src="files/large-photos/AlanTrotter.jpg")
-        img.main-photograph(src="files/large-photos/alys-portrait.jpg")
-        img.main-photograph(src="files/large-photos/AlanTrotter2.jpg")
+      include _includes/product_photography.pug
+      include _includes/portrait_photography.pug
       
       .photo-nav
   
