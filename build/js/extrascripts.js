@@ -171,7 +171,7 @@ function changecategory(requestedcategoryobject) {
 	
 	const urlState = currentcategoryname;
 	//update the URL and add the state
-	history.pushState(urlState, '', '/' + urlState)
+	history.replaceState(urlState, '', '/' + urlState)
 	
 	updatebackgroundimage();
 	

@@ -81,6 +81,7 @@ h1 {
   max-width: 600px;
   grid-area: main-content;
   justify-self: center;
+  padding-bottom: 60px;
 }
 
 ::selection {
