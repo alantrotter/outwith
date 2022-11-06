@@ -77,16 +77,16 @@ function initialphotocountsetup() {
 function populatephotonavicons(number) {
 	
 	//reset to zero
-	$('a.photo-icon').remove();
+	$('a.photo-icon-link').remove();
 
 	//loop for the number of icons called	
 	for (let i = 0; i <= number; i++) {
 		
 		//if icon number matches current category's current photo number, add current icon, else add normal icon
 		if (currentcategory.currentphoto == i) {
-			$('.photo-nav').append('<a class="photo-icon current" href="#"></a>');
+			$('.photo-nav').append('<a class="photo-icon-link current" href="#"><img src="/img/photo-icon.svg" class="photo-icon" alt="A small nav icon representing a photo" /></a>');
 		} else {
-			$('.photo-nav').append('<a class="photo-icon" href="#"></a>');
+			$('.photo-nav').append('<a class="photo-icon-link" href="#"><img src="/img/photo-icon.svg" class="photo-icon" alt="A small nav icon representing a photo" /></a>');
 		}
 		
 	}
@@ -134,13 +134,13 @@ function navlinkclick() {
 		
 		
 	});
-	$('.photo-nav').on("click", ".photo-icon", function(e) {
+	$('.photo-nav').on("click", ".photo-icon-link", function(e) {
 		
 		//disable default action
 		e.preventDefault();
 		
 		//call the changephoto function with the correct photo number
-		changephoto($('.photo-icon').index(this));
+		changephoto($('.photo-icon-link').index(this));
 		
 	});
 }
@@ -194,8 +194,8 @@ function changephoto(requestedphoto) {
 	updatebackgroundimage();
 	
 	//update the photo icon by removing the old current class and adding to the new one
-	$('.photo-nav').find('.photo-icon.current').removeClass('current');
-	$('.photo-nav').children('.photo-icon').eq(requestedphoto).addClass('current');
+	$('.photo-nav').find('.photo-icon-link.current').removeClass('current');
+	$('.photo-nav').children('.photo-icon-link').eq(requestedphoto).addClass('current');
 	
 }
 

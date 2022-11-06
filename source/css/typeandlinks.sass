@@ -73,25 +73,19 @@ a.photo-icon, a.photo-icon::before
 	height: 0
 	border: $photo-icon-size solid transparent
 	
-a.photo-icon
-	font-size: 4em
-	position: relative
-	border-bottom-color: black
-	margin: 0 0.08em
+a.photo-icon-link
+	padding: 4px
+	margin: 0 2px
 	opacity: 0.4
-	
-	transform: rotate(0)
-	transition: rotate 0.3s cubic-bezier(.07,.73,.15,.98)
-	&::before
-		content: ''
-		position: absolute
-		left: -$photo-icon-size
-		top: $photo-icon-size
-		border-top-color: black
+	// transform: rotate(0)
+	// transition: rotate 0.3s cubic-bezier(.07,.73,.15,.98)
 	&.current, &:hover
 		opacity: 1
-	&:hover
-		transform: rotate(360deg)
+	// &:hover
+	// 	transform: rotate(360deg)
+
+img.photo-icon
+	width: 8px
 		
 .text p
 	font-family: brother-1816, sans-serif
