@@ -8,8 +8,19 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="https://use.typekit.net/trs6gfm.css")
     link(href="/css/styles.css", rel="stylesheet")
-    title Outwith – product and portrait photography in Edinburgh 
-    meta(name="description",content="")
+    title Outwith – product photography in Edinburgh 
+
+    meta(name="description",content="Outwith – product and portrait photography in Edinburgh")
+    meta(property="og:title" content="Outwith")
+    meta(property="og:type" content="website")
+    meta(property="og:image" content="https://outwith.work/img/social-image.jpg")
+    meta(property="og:url" content="https://outwith.work/product-photography")
+    meta(name="twitter:card" content="summary_large_image")
+    
+    meta(property="og:description" content="Product photography in Edinburgh.")
+    meta(property="og:site_name" content="Outwith")
+    meta(name="twitter:image:alt" content="A logo for Outwith featuring black type on a light background.")
+
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js")
     script(src="/js/extrascripts.js")
   
@@ -19,9 +30,9 @@ html
       include ../_includes/_logo.pug
       
       include ../_includes/_nav.pug
-        
-      include ../_includes/product_photography.pug
-      include ../_includes/portrait_photography.pug
+      
+      .photo-wrapper
+        include ../_includes/product_photography.pug
+        include ../_includes/portrait_photography.pug
       
       .photo-nav
-  

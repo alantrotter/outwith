@@ -11,7 +11,11 @@ $(document).ready(function() {
 		initialphotocountsetup();
 		navlinkclick();
 	}
-
+	//this is to show all the photo-category containers on the front page for mobile
+	if (document.location.pathname.split(/\/(?=.)/).length == 1) {
+		console.log('i want to turn on all of the categories for mobile');
+		$('style').text("@media (max-width: 768px) {.photograph-container { display: block; }}")
+	}
 
 });
 
@@ -68,7 +72,7 @@ function initialphotocountsetup() {
 	//set up initial background image based on the 'on' photocontainer and image
 	var initialimage = $('.photograph-container.on > img.main-photograph.on').attr('src');
 	console.log('initial image is ' + initialimage);
-	$('.photograph-container.on').css('background-image', 'url("' + initialimage + '"');
+	$('.photo-wrapper').css('background-image', 'url("' + initialimage + '"');
 	
 	updatebackgroundimage();
 	
@@ -202,7 +206,7 @@ function changephoto(requestedphoto) {
 function updatebackgroundimage() {
 	//set up initial background image based on the 'on' photocontainer and image
 	var wantedimage = $('.photograph-container.on > img.main-photograph.on').attr('src');
-	$('.photograph-container.on').css('background-image', 'url("' + wantedimage + '"');
+	$('.photo-wrapper').css('background-image', 'url("' + wantedimage + '"');
 	
 }
 

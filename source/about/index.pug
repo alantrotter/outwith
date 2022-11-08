@@ -8,8 +8,19 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="https://use.typekit.net/trs6gfm.css")
     link(href="/css/styles.css", rel="stylesheet")
-    title Outwith – product and portrait photography in Edinburgh 
-    meta(name="description",content="")
+    title About Outwith – product and portrait photography in Edinburgh 
+
+    meta(name="description",content="About Outwith – product and portrait photography in Edinburgh")
+    meta(property="og:title" content="About Outwith")
+    meta(property="og:type" content="website")
+    meta(property="og:image" content="https://outwith.work/img/social-image.jpg")
+    meta(property="og:url" content="https://outwith.work")
+    meta(name="twitter:card" content="summary_large_image")
+    
+    meta(property="og:description" content="About Outwith")
+    meta(property="og:site_name" content="Outwith")
+    meta(name="twitter:image:alt" content="A logo for Outwith featuring black type on a light background.")
+      
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js")
     script(src="/js/extrascripts.js")
   
@@ -17,11 +28,12 @@ html
         
     .contents
       include ../_includes/_logo.pug
+      include ../_includes/_nav.pug
+        
       
       .text
         img(src="/files/other-images/about-outwith.jpg", alt="A photograph of Alan Nevens, a very trustworthy and admirable sort. His right hand is in his hair and his gaze is off... into the future")
-        p Hello! #[span(style="font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 16px;") Outwith] is me, #[span.highlighted Alan Nevens], doing photography in Edinburgh. I am particularly keen to work with people in the arts and charity sectors, and particularly like taking pictures of people and of books (which are like people but better and more rectangular).
+        p Hello! #[img(src="/img/outwith-logo-horizontal.svg", alt="Outwith", title="outwith", style="width: 8rem; margin: 0; transform: translateY(2px);")] is me, #[span.highlighted Alan Nevens], doing photography in Edinburgh. I particularly like taking pictures of people and of books (which are like people but better and more rectangular). 
+        p And I particularly like working with people in the arts and charity sectors. 
         p If you want to discuss working with me, please email me at #[a.highlighted(href="mailto:alan@outwith.work") alan@outwith.work].
             
-      include ../_includes/_nav.pug
-        

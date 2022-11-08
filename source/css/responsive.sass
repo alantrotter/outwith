@@ -1,0 +1,68 @@
+$fancy-colour: #feff00
+
+@media (max-width: 1000px) and (min-width: 769px)
+
+	html
+		font-size: 50%
+	
+	.contents
+		grid-template-columns: 100px 1fr 130px
+		grid-template-rows: auto auto 30px
+		
+@media (max-width: 768px)
+
+	html
+		font-size: 62.5%
+		
+	.photo-wrapper
+		background-image: none!important
+	
+	.photograph-container:first-child, .main-photograph
+		display: block
+	
+	.main-photograph
+		width: 100%
+		margin: 20px 0
+		&:first-of-type
+			margin-top: 0
+	
+	.contents
+		display: flex
+		flex-direction: column
+		align-items: center
+		height: auto
+		margin-bottom: 30px
+		
+	h1
+		justify-self: center
+		width: 40%
+		min-width: 160px
+		margin-bottom: 40px
+		
+	.photo-nav, .nav-sidebar
+		display: none
+		
+	.mobile-main-nav, .mobile-secondary-nav
+		display: block
+		text-align: center
+		width: 100%
+		background: #f6f6f6
+		padding: 0.4em 0 0.4em
+	
+	.mobile-main-nav
+		grid-area: main-nav
+		position: sticky
+		top: 0
+		line-height: 1
+		margin-bottom: 20px
+	
+	.mobile-secondary-nav
+		position: fixed
+		bottom: 0
+	
+	.mobile-main-nav a, .mobile-secondary-nav a
+		font-family: bely-display, serif
+		font-weight: 400
+		background-image: linear-gradient( to top, rgba(0,0,0,0) 3%, $fancy-colour 3%, $fancy-colour 12%, rgba(0,0,0,0) 12%)
+		&:hover
+			background-color: $fancy-colour
