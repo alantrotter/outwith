@@ -10,6 +10,8 @@ $(document).ready(function() {
 		
 		initialphotocountsetup();
 		navlinkclick();
+		setalttext();
+		addlinkswherewanted();
 	}
 	//this is to show all the photo-category containers on the front page for mobile
 	if (document.location.pathname.split(/\/(?=.)/).length == 1) {
@@ -42,7 +44,7 @@ function initialphotocountsetup() {
 		// nb: number of photos is an index, so 1 less than total
 		let collectiondetails = {
 			'photocategory': $(this).attr('data-category'),
-			'numberofphotos': ($(this).children('img').length - 1),
+			'numberofphotos': ($(this).find('img').length - 1),
 			'currentphoto': 0,
 			'iscurrent': isfirst
 		}
@@ -70,9 +72,11 @@ function initialphotocountsetup() {
 	
 	
 	//set up initial background image based on the 'on' photocontainer and image
-	var initialimage = $('.photograph-container.on > img.main-photograph.on').attr('src');
+	var initialimage = $('.photograph-container.on').find('img.main-photograph.on').attr('src');
 	console.log('initial image is ' + initialimage);
 	$('.photo-wrapper').css('background-image', 'url("' + initialimage + '"');
+	
+	getcaption();
 	
 	updatebackgroundimage();
 	
@@ -175,7 +179,9 @@ function changecategory(requestedcategoryobject) {
 	
 	const urlState = currentcategoryname;
 	//update the URL and add the state
-	history.replaceState(urlState, '', '/' + urlState)
+	history.replaceState(urlState, '', '/' + urlState);
+	
+	getcaption();
 	
 	updatebackgroundimage();
 	
@@ -188,14 +194,16 @@ function changephoto(requestedphoto) {
 	
 	//turn off the current photo and turn on the new one
 	currentphotographcontainer.find('img.main-photograph.on').removeClass('on');
-	currentphotographcontainer.children('img.main-photograph').eq(requestedphoto).addClass('on');
+	currentphotographcontainer.find('img.main-photograph').eq(requestedphoto).addClass('on');
 	
-	//change the background image
 	
 	//update the currentphotonumber
 	currentcategory.currentphoto = requestedphoto;
 	
+	//change the background image
 	updatebackgroundimage();
+	
+	getcaption();
 	
 	//update the photo icon by removing the old current class and adding to the new one
 	$('.photo-nav').find('.photo-icon-link.current').removeClass('current');
@@ -205,9 +213,47 @@ function changephoto(requestedphoto) {
 
 function updatebackgroundimage() {
 	//set up initial background image based on the 'on' photocontainer and image
-	var wantedimage = $('.photograph-container.on > img.main-photograph.on').attr('src');
+	var wantedimage = $('.photograph-container.on').find('img.main-photograph.on').attr('src');
 	$('.photo-wrapper').css('background-image', 'url("' + wantedimage + '"');
 	
+}
+
+function getcaption() {
+	//empty the caption element and add in the new one if there is one
+	$('.caption').empty();
+	console.log("trying to set caption");
+	var desiredcaption = $('.photograph-container[data-category="' + currentcategoryname + '"]').find('img.main-photograph').eq(currentcategory.currentphoto).attr('data-caption');
+	console.log("desired caption is" + desiredcaption);
+	if (desiredcaption) {
+		$('.caption').html('<p>' + desiredcaption + '</p>');
+		balanceText($('.caption p'));
+	}
+	
+	$('.caption p a').attr('target', 'blank');
+}
+
+function setalttext() {
+	$(".main-photograph").each(function(i){
+	
+		//get the caption as a string, make it into HTML and then make that text to get rid of HTML tags. Then set it as the alt attribute
+		var caption = $(this).attr('data-caption');
+		caption = $.parseHTML(caption);
+		caption = $.text(caption);
+		$(this).attr('alt', caption);
+	
+	});
+}
+
+function addlinkswherewanted() {
+	$(".main-photograph").each(function(i){
+		if($(this).attr('data-link')) {
+			console.log("this has a data link attr " + i);
+			// $("<a href='" + $(this).attr('data-link') + "'>").insertBefore($(this));
+			// $("</a>").insertAfter($(this));
+			$(this).wrap('<a href="' + $(this).attr('data-link') + '" target="_blank"></a>');
+		}
+		
+	});
 }
 
 

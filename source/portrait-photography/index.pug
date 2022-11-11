@@ -21,8 +21,8 @@ html
     meta(property="og:site_name" content="Outwith")
     meta(name="twitter:image:alt" content="A logo for Outwith featuring black type on a light background.")
     
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js")
-    script(src="/js/extrascripts.js")
+    include ../_includes/_scripts.pug
+
   
   body
         
@@ -31,8 +31,11 @@ html
       
       include ../_includes/_nav.pug
       
+      .caption
+      
       .photo-wrapper
         include ../_includes/portrait_photography.pug
         include ../_includes/product_photography.pug
+        include ../_includes/websites.pug
       
       .photo-nav

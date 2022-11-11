@@ -14,9 +14,15 @@
 	display: grid
 	grid-column-gap: 2rem
 	grid-row-gap: 0
-	grid-template-areas: "logo main-content main-nav" ". main-content main-nav" ". photo-nav main-nav"
+	grid-template-areas: "logo main-content main-nav" "caption main-content main-nav" ". photo-nav main-nav"
 	grid-template-columns: 140px 1fr 178px
 	grid-template-rows: auto auto 30px
+	
+.caption
+	grid-area: caption
+	margin-top: auto
+	margin-bottom: 20px
+	padding-top: 60px
 	
 .nav-sidebar
 	grid-area: main-nav
@@ -32,14 +38,15 @@
 	flex-direction: column
 	align-items: flex-start
 	margin: auto 0 50px 0
+	padding-top: 60px
 
 .mobile-main-nav, .mobile-secondary-nav
 	display: none
 	
 h1
 	grid-area: logo
-	width: 90%
-	margin: 20px 10px
+	width: 100%
+	margin: 20px 0
 	
 .logo
 	width: 100%

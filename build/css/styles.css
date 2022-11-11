@@ -30,9 +30,16 @@ body {
   display: grid;
   grid-column-gap: 2rem;
   grid-row-gap: 0;
-  grid-template-areas: "logo main-content main-nav" ". main-content main-nav" ". photo-nav main-nav";
+  grid-template-areas: "logo main-content main-nav" "caption main-content main-nav" ". photo-nav main-nav";
   grid-template-columns: 140px 1fr 178px;
   grid-template-rows: auto auto 30px;
+}
+
+.caption {
+  grid-area: caption;
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding-top: 60px;
 }
 
 .nav-sidebar {
@@ -51,6 +58,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   margin: auto 0 50px 0;
+  padding-top: 60px;
 }
 
 .mobile-main-nav, .mobile-secondary-nav {
@@ -59,8 +67,8 @@ body {
 
 h1 {
   grid-area: logo;
-  width: 90%;
-  margin: 20px 10px;
+  width: 100%;
+  margin: 20px 0;
 }
 
 .logo {
@@ -116,6 +124,7 @@ a {
 
 .main-nav p {
   font-size: 1.3rem;
+  line-height: 1.4;
 }
 
 a.main-nav-link, a.secondary-nav-link {
@@ -132,7 +141,7 @@ a.main-nav-link.light, a.secondary-nav-link.light {
 a.main-nav-link {
   position: relative;
   font-size: 2.6rem;
-  line-height: 1.1;
+  line-height: 1.2;
   display: inline-block;
   text-transform: uppercase;
 }
@@ -140,16 +149,40 @@ a.main-nav-link:first-child {
   margin-top: 0.1em;
 }
 
+.caption p {
+  position: relative;
+  text-align: right;
+  font-size: 1rem;
+  font-family: brother-1816, sans-serif;
+  font-weight: 300;
+  text-wrap: balance;
+}
+.caption p::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0.4rem;
+  border-top: 0.4rem solid transparent;
+  border-left: 0.4rem solid black;
+  border-bottom: 0.4rem solid transparent;
+  right: -1rem;
+}
+
+.caption a, .text a {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 3%, #feff00 3%, #feff00 12%, rgba(0, 0, 0, 0) 12%);
+}
+
 .selected::before {
   content: "";
   position: absolute;
   width: 0;
   height: 0;
-  top: 0.4em;
-  border-top: 0.2em solid transparent;
-  border-left: 0.2em solid black;
-  border-bottom: 0.2em solid transparent;
-  left: -0.4em;
+  top: 1.2rem;
+  border-top: 0.4rem solid transparent;
+  border-left: 0.4rem solid black;
+  border-bottom: 0.4rem solid transparent;
+  left: -1rem;
   z-index: 20;
   transition: left 0.3s cubic-bezier(0.07, 0.73, 0.15, 0.98);
 }
@@ -220,6 +253,9 @@ span.highlighted, a.highlighted {
 @media (max-width: 768px) {
   html {
     font-size: 62.5%;
+  }
+  .caption {
+    display: none;
   }
   .photo-wrapper {
     background-image: none !important;

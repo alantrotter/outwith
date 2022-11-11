@@ -18,6 +18,7 @@ a
 	
 .main-nav p
 	font-size: 1.3rem
+	line-height: 1.4
 
 a.main-nav-link, a.secondary-nav-link
 	color: #000
@@ -31,11 +32,33 @@ a.main-nav-link, a.secondary-nav-link
 a.main-nav-link
 	position: relative
 	font-size: 2.6rem
-	line-height: 1.1
+	line-height: 1.2
 	display: inline-block
 	text-transform: uppercase
 	&:first-child
 		margin-top:0.1em
+
+.caption p
+	position: relative
+	text-align: right
+	font-size: 1rem
+	font-family: brother-1816, sans-serif
+	font-weight: 300
+	text-wrap: balance
+	&::before
+		content: ''
+		position: absolute	
+		width: 0
+		height: 0
+		top: 0.4rem
+		border-top: 0.4rem solid transparent
+		border-left: 0.4rem solid black
+		border-bottom: 0.4rem solid transparent
+		right: -1rem
+
+.caption a, .text a
+	background-image: linear-gradient( to top, rgba(0,0,0,0) 3%, $fancy-colour 3%, $fancy-colour 12%, rgba(0,0,0,0) 12%)
+
 
 .selected
 	&::before
@@ -43,11 +66,11 @@ a.main-nav-link
 		position: absolute	
 		width: 0
 		height: 0
-		top: 0.4em
-		border-top: 0.2em solid transparent
-		border-left: 0.2em solid black
-		border-bottom: 0.2em solid transparent
-		left: -0.4em
+		top: 1.2rem
+		border-top: 0.4rem solid transparent
+		border-left: 0.4rem solid black
+		border-bottom: 0.4rem solid transparent
+		left: -1rem
 		z-index: 20
 		transition: left 0.3s cubic-bezier(.07,.73,.15,.98)
 
