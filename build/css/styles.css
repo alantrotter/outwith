@@ -109,7 +109,7 @@ h1 {
 }
 
 p {
-  font-family: bely, serif;
+  font-family: brother-1816, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1.8rem;
@@ -123,14 +123,14 @@ a {
 }
 
 .main-nav p {
-  font-size: 1.3rem;
+  font-size: 1rem;
   line-height: 1.4;
 }
 
 a.main-nav-link, a.secondary-nav-link {
   color: #000;
-  font-family: bely-display, sans-serif;
-  font-weight: 400;
+  font-family: brother-1816, sans-serif;
+  font-weight: 900;
   font-style: normal;
   letter-spacing: 0.03em;
 }
@@ -140,7 +140,7 @@ a.main-nav-link.light, a.secondary-nav-link.light {
 
 a.main-nav-link {
   position: relative;
-  font-size: 2.6rem;
+  font-size: 1.4rem;
   line-height: 1.2;
   display: inline-block;
   text-transform: uppercase;
@@ -178,7 +178,7 @@ a.main-nav-link:first-child {
   position: absolute;
   width: 0;
   height: 0;
-  top: 1.2rem;
+  top: 0.6rem;
   border-top: 0.4rem solid transparent;
   border-left: 0.4rem solid black;
   border-bottom: 0.4rem solid transparent;
@@ -199,26 +199,24 @@ a.main-nav-link:hover, a.secondary-nav-link:hover {
 
 a.secondary-nav-link {
   display: inline-block;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin: 0;
 }
 a.secondary-nav-link:first-of-type {
   margin-top: auto;
 }
 
-a.photo-icon, a.photo-icon::before {
-  width: 0;
-  height: 0;
-  border: 0.07em solid transparent;
-}
-
 a.photo-icon-link {
-  padding: 4px;
+  padding: 2.5px;
   margin: 0 2px;
   opacity: 0.4;
 }
 a.photo-icon-link.current, a.photo-icon-link:hover {
   opacity: 1;
+}
+
+.photo-nav {
+  font-size: 18px;
 }
 
 img.photo-icon {
@@ -287,6 +285,9 @@ span.highlighted, a.highlighted {
     display: none;
   }
   .mobile-main-nav, .mobile-secondary-nav {
+    font-family: brother-1816, sans-serif;
+    font-weight: 300;
+    font-size: 1.6rem;
     display: block;
     text-align: center;
     width: 100%;
@@ -297,7 +298,7 @@ span.highlighted, a.highlighted {
     grid-area: main-nav;
     position: sticky;
     top: 0;
-    line-height: 1;
+    line-height: 1.2;
     margin-bottom: 20px;
   }
   .mobile-secondary-nav {
@@ -305,8 +306,8 @@ span.highlighted, a.highlighted {
     bottom: 0;
   }
   .mobile-main-nav a, .mobile-secondary-nav a {
-    font-family: bely-display, serif;
-    font-weight: 400;
+    font-weight: 900;
+    letter-spacing: 0.04em;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 3%, #feff00 3%, #feff00 12%, rgba(0, 0, 0, 0) 12%);
   }
   .mobile-main-nav a:hover, .mobile-secondary-nav a:hover {

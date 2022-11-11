@@ -247,9 +247,6 @@ function setalttext() {
 function addlinkswherewanted() {
 	$(".main-photograph").each(function(i){
 		if($(this).attr('data-link')) {
-			console.log("this has a data link attr " + i);
-			// $("<a href='" + $(this).attr('data-link') + "'>").insertBefore($(this));
-			// $("</a>").insertAfter($(this));
 			$(this).wrap('<a href="' + $(this).attr('data-link') + '" target="_blank"></a>');
 		}
 		
