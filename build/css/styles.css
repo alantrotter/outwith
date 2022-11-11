@@ -178,7 +178,7 @@ a.main-nav-link:first-child {
   position: absolute;
   width: 0;
   height: 0;
-  top: 0.6rem;
+  top: 0.48rem;
   border-top: 0.4rem solid transparent;
   border-left: 0.4rem solid black;
   border-bottom: 0.4rem solid transparent;
@@ -187,10 +187,7 @@ a.main-nav-link:first-child {
   transition: left 0.3s cubic-bezier(0.07, 0.73, 0.15, 0.98);
 }
 .selected:hover::before {
-  left: -0.3em;
-}
-.selected:hover::after {
-  left: -0.4em;
+  left: -0.6rem;
 }
 
 a.main-nav-link:hover, a.secondary-nav-link:hover {
