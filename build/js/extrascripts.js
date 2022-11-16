@@ -8,10 +8,10 @@ const urlState = "";
 $(document).ready(function() {
 	if($('.photograph-container').length != 0) {
 		
+		addlinkswherewanted();
 		initialphotocountsetup();
 		navlinkclick();
 		setalttext();
-		addlinkswherewanted();
 	}
 	//this is to show all the photo-category containers on the front page for mobile
 	if (document.location.pathname.split(/\/(?=.)/).length == 1) {
@@ -249,6 +249,8 @@ function setalttext() {
 }
 
 function addlinkswherewanted() {
+	$('.nav-sidebar').after('<a href="#" class="next-link"></><a href="#" class="prev-link"></a>');
+	
 	// $(".main-photograph").each(function(i){
 	// 	if($(this).attr('data-link')) {
 	// 		$(this).wrap('<a href="' + $(this).attr('data-link') + '" target="_blank"></a>');
