@@ -1,3 +1,5 @@
+$fancy-colour: #feff00
+
 .contents
 	margin-inline: auto
 	max-width: 1800px
@@ -7,7 +9,7 @@
 	display: grid
 	grid-column-gap: 2rem
 	grid-row-gap: 0
-	grid-template-columns: 140px 1fr 160px
+	grid-template-columns: 140px 1fr 140px
 	grid-template-rows: auto auto 30px
 	grid-template-areas: "logo main-content main-nav" "caption main-content main-nav" ". photo-nav ."
 
@@ -65,11 +67,39 @@ img.main-photograph
 	grid-area: photo-nav
 	display: flex
 	justify-self: center
+	overflow: hidden
 	
-.prev-link, .next-link
+.prev-link, .next-link, .external-link
 	width: 30%
 	grid-area: main-content
 	z-index: 30
 
 .next-link
 	justify-self: end
+	cursor: e-resize
+
+.external-link
+	justify-self: center
+	&:hover ~ .external-link-overlay
+		opacity: 1
+		transform: scale(1)
+		transition: all 0.3s cubic-bezier(.07,.73,.15,.98)
+		
+.prev-link
+	cursor: w-resize
+	
+.external-link-overlay
+	transition: all 150ms cubic-bezier(.12,.83,.63,.95)
+	opacity: 0
+	transform: scale(0.9)
+	grid-area: main-content
+	justify-self: center
+	align-self: center
+	display: flex
+	justify-content: center
+	align-items: center
+	background: rgba(0, 0, 0, 0.7)
+	z-index: 25
+	width: calc((100vw - 380px) / 3)
+	height: calc((100vw - 380px) / 3)
+	border-radius: 50%

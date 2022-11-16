@@ -73,6 +73,7 @@ function initialphotocountsetup() {
 	
 	getcaption();
 		
+	manageexternallink();
 }
 
 function populatephotonavicons(number) {
@@ -192,6 +193,8 @@ function changecategory(requestedcategoryobject) {
 	history.replaceState(urlState, '', '/' + urlState);
 	
 	getcaption();
+	
+	manageexternallink();
 		
 }
 
@@ -213,6 +216,8 @@ function changephoto(requestedphoto) {
 	//update the photo icon by removing the old current class and adding to the new one
 	$('.photo-nav').find('.photo-icon-link.current').removeClass('current');
 	$('.photo-nav').children('.photo-icon-link').eq(requestedphoto).addClass('current');
+	
+	manageexternallink();
 	
 }
 
@@ -252,5 +257,16 @@ function addlinkswherewanted() {
 	// });
 }
 
-
+function manageexternallink() {
+	
+	$('a.external-link, .external-link-overlay').remove();
+	
+	var linktouse = $('.photograph-container.on .main-photograph.on').attr('data-link');
+	var handsomelink = linktouse.replace(/^https?\:\/\//i, "");
+	
+	if(linktouse) {
+		console.log('has datalink');
+		$('.prev-link').after("<a href='" + linktouse + "' target='_blank' class='external-link'></a><div class='external-link-overlay'><p>" + handsomelink + "</p></div>");
+	} 
+}
 

@@ -59,9 +59,8 @@ a.secondary-nav-link
 		border-bottom: 0.4rem solid transparent
 		right: -1rem
 		
-.caption a, .text a
-		background-image: linear-gradient( to top, rgba(0,0,0,0) 3%, $fancy-colour 3%, $fancy-colour 12%, rgba(0,0,0,0) 12%)
-
+.caption a, .text a, .external-link-overlay p
+	background-image: linear-gradient( to top, rgba(0,0,0,0) 3%, $fancy-colour 3%, $fancy-colour 12%, rgba(0,0,0,0) 12%)
 
 .text img
 	max-width: 100%
@@ -78,14 +77,18 @@ a.photo-icon-link
 	transition: all 150ms cubic-bezier(.12,.83,.63,.95)
 	&:hover
 		transform: scale(1.2)
-		transition: all 300ms cubic-bezier(.64,.16,.48,.81)
+		transition: all 0.3s cubic-bezier(.07,.73,.15,.98)
 	&.current, &:hover
 		opacity: 1
 
 			
 .next-link:hover ~ .photo-nav > .photo-icon-link.current
 	transform: translateX(4px) scale(1.2)
-	transition: all 300ms cubic-bezier(.64,.16,.48,.81)
+	transition: all 0.3s cubic-bezier(.07,.73,.15,.98)
 
 .prev-link:hover ~ .photo-nav > .photo-icon-link.current
 	transform: translateX(-4px) scale(1.2)	
+	
+.external-link-overlay p
+	color: white
+	font-size: 1.8rem
