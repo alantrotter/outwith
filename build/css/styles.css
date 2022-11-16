@@ -68,7 +68,7 @@ h1 {
   height: 100%;
 }
 
-.main-photograph {
+img.main-photograph {
   margin-inline: auto;
   max-width: 100%;
   min-height: 100%;
@@ -106,6 +106,16 @@ h1 {
   justify-self: center;
 }
 
+.prev-link, .next-link {
+  width: 30%;
+  grid-area: main-content;
+  z-index: 30;
+}
+
+.next-link {
+  justify-self: end;
+}
+
 span.highlighted, a.highlighted {
   background-color: #feff00;
 }
@@ -130,7 +140,7 @@ a.main-nav-link:hover, a.secondary-nav-link:hover {
 
 a.main-nav-link {
   position: relative;
-  display: inline;
+  display: inline-block;
   font-size: 1.4rem;
   line-height: 1.2;
   text-transform: uppercase;
@@ -193,9 +203,23 @@ a.photo-icon-link {
   padding: 2.5px;
   margin: 0 2px;
   opacity: 0.4;
+  transition: all 150ms cubic-bezier(0.12, 0.83, 0.63, 0.95);
+}
+a.photo-icon-link:hover {
+  transform: scale(1.2);
+  transition: all 300ms cubic-bezier(0.64, 0.16, 0.48, 0.81);
 }
 a.photo-icon-link.current, a.photo-icon-link:hover {
   opacity: 1;
+}
+
+.next-link:hover ~ .photo-nav > .photo-icon-link.current {
+  transform: translateX(4px) scale(1.2);
+  transition: all 300ms cubic-bezier(0.64, 0.16, 0.48, 0.81);
+}
+
+.prev-link:hover ~ .photo-nav > .photo-icon-link.current {
+  transform: translateX(-4px) scale(1.2);
 }
 
 .mobile-main-nav, .mobile-secondary-nav {
@@ -215,7 +239,7 @@ a.photo-icon-link.current, a.photo-icon-link:hover {
   html {
     font-size: 62.5%;
   }
-  .caption {
+  .caption, .next-link, .prev-link {
     display: none;
   }
   .photograph-wrapper {

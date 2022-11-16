@@ -144,6 +144,23 @@ function navlinkclick() {
 		changephoto($('.photo-icon-link').index(this));
 		
 	});
+	$('a.next-link').click(function(e) {
+		e.preventDefault();
+		
+		if(currentcategory.currentphoto != currentcategory.numberofphotos) {
+			changephoto(currentcategory.currentphoto + 1);
+		} else {
+			changephoto(0);
+		}
+	});
+	$('a.prev-link').click(function(e) {
+		e.preventDefault();
+		if(currentcategory.currentphoto != 0) {
+			changephoto(currentcategory.currentphoto - 1);
+		} else {
+			changephoto(currentcategory.numberofphotos);
+		}
+	});
 }
 
 function changecategory(requestedcategoryobject) {
@@ -204,7 +221,6 @@ function changephoto(requestedphoto) {
 function getcaption() {
 	//empty the caption element and add in the new one if there is one
 	$('.caption').empty();
-	console.log("trying to set caption");
 	var desiredcaption = $('.photograph-container[data-category="' + currentcategoryname + '"]').find('img.main-photograph').eq(currentcategory.currentphoto).attr('data-caption');
 	console.log("desired caption is" + desiredcaption);
 	if (desiredcaption) {
@@ -228,12 +244,12 @@ function setalttext() {
 }
 
 function addlinkswherewanted() {
-	$(".main-photograph").each(function(i){
-		if($(this).attr('data-link')) {
-			$(this).wrap('<a href="' + $(this).attr('data-link') + '" target="_blank"></a>');
-		}
-		
-	});
+	// $(".main-photograph").each(function(i){
+	// 	if($(this).attr('data-link')) {
+	// 		$(this).wrap('<a href="' + $(this).attr('data-link') + '" target="_blank"></a>');
+	// 	}
+	// 	
+	// });
 }
 
 
