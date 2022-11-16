@@ -71,15 +71,8 @@ function initialphotocountsetup() {
 	// console.log(categoryfromstorage);  
 	
 	
-	//set up initial background image based on the 'on' photocontainer and image
-	var initialimage = $('.photograph-container.on').find('img.main-photograph.on').attr('src');
-	console.log('initial image is ' + initialimage);
-	$('.photo-wrapper').css('background-image', 'url("' + initialimage + '"');
-	
 	getcaption();
-	
-	updatebackgroundimage();
-	
+		
 }
 
 function populatephotonavicons(number) {
@@ -182,9 +175,7 @@ function changecategory(requestedcategoryobject) {
 	history.replaceState(urlState, '', '/' + urlState);
 	
 	getcaption();
-	
-	updatebackgroundimage();
-	
+		
 }
 
 function changephoto(requestedphoto) {
@@ -199,10 +190,7 @@ function changephoto(requestedphoto) {
 	
 	//update the currentphotonumber
 	currentcategory.currentphoto = requestedphoto;
-	
-	//change the background image
-	updatebackgroundimage();
-	
+		
 	getcaption();
 	
 	//update the photo icon by removing the old current class and adding to the new one
@@ -211,12 +199,7 @@ function changephoto(requestedphoto) {
 	
 }
 
-function updatebackgroundimage() {
-	//set up initial background image based on the 'on' photocontainer and image
-	var wantedimage = $('.photograph-container.on').find('img.main-photograph.on').attr('src');
-	$('.photo-wrapper').css('background-image', 'url("' + wantedimage + '"');
-	
-}
+
 
 function getcaption() {
 	//empty the caption element and add in the new one if there is one
