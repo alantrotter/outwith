@@ -245,7 +245,7 @@ function setalttext() {
 		caption = $.text(caption);
 		$(this).attr('alt', caption);
 	
-	});
+	}); 
 }
 
 function addlinkswherewanted() {
@@ -261,12 +261,11 @@ function manageexternallink() {
 	
 	$('a.external-link, .external-link-overlay').remove();
 	
-	var linktouse = $('.photograph-container.on .main-photograph.on').attr('data-link');
-	var handsomelink = linktouse.replace(/^https?\:\/\//i, "");
-	
-	if(linktouse) {
-		console.log('has datalink');
+	if($('.photograph-container.on .main-photograph.on').attr('data-link')) {
+		var linktouse = $('.photograph-container.on .main-photograph.on').attr('data-link');
+		var handsomelink = linktouse.replace(/^https?\:\/\//i, "");		
 		$('.prev-link').after("<a href='" + linktouse + "' target='_blank' class='external-link'></a><div class='external-link-overlay'><p>" + handsomelink + "</p></div>");
-	} 
+	}
+
 }
 
