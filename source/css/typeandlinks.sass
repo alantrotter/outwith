@@ -14,8 +14,12 @@ h1
 a.main-nav-link, a.secondary-nav-link
 	font-weight: 900
 	letter-spacing: 0.03em
-	&:hover
-		background: $fancy-colour
+	background-image: linear-gradient( to bottom, rgba(0,0,0,0) 50.5%, $fancy-colour 50.5%, $fancy-colour 100%)
+	background-size: 100% 200%
+	transition: background-position 0.25s cubic-bezier(.12,.83,.63,.95)
+	&:hover, &:focus
+		background-position: 0 100%
+		transition: background-position 0.5s cubic-bezier(.07,.73,.15,.98)
 
 a.main-nav-link
 	position: relative
@@ -60,7 +64,12 @@ a.secondary-nav-link
 		right: -1rem
 		
 .caption a, .text a, .external-link-overlay p
-	background-image: linear-gradient( to top, rgba(0,0,0,0) 3%, $fancy-colour 3%, $fancy-colour 12%, rgba(0,0,0,0) 12%)
+	background-image: linear-gradient( to bottom, rgba(0,0,0,0) 44%, $fancy-colour 44%, $fancy-colour 100%)
+	background-size: 100% 200%
+	transition: background-position 150ms cubic-bezier(.12,.83,.63,.95)
+	&:hover, &:focus
+		background-position: 0 100%
+		transition: background-position 0.3s cubic-bezier(.07,.73,.15,.98)
 
 .text img
 	max-width: 100%
@@ -75,7 +84,7 @@ a.photo-icon-link
 	margin: 0 2px
 	opacity: 0.4
 	transition: all 150ms cubic-bezier(.12,.83,.63,.95)
-	&:hover
+	&:hover, &:focus
 		transform: scale(1.2)
 		transition: all 0.3s cubic-bezier(.07,.73,.15,.98)
 	&.current, &:hover

@@ -165,9 +165,13 @@ h1 {
 a.main-nav-link, a.secondary-nav-link {
   font-weight: 900;
   letter-spacing: 0.03em;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50.5%, #feff00 50.5%, #feff00 100%);
+  background-size: 100% 200%;
+  transition: background-position 0.25s cubic-bezier(0.12, 0.83, 0.63, 0.95);
 }
-a.main-nav-link:hover, a.secondary-nav-link:hover {
-  background: #feff00;
+a.main-nav-link:hover, a.main-nav-link:focus, a.secondary-nav-link:hover, a.secondary-nav-link:focus {
+  background-position: 0 100%;
+  transition: background-position 0.5s cubic-bezier(0.07, 0.73, 0.15, 0.98);
 }
 
 a.main-nav-link {
@@ -218,7 +222,13 @@ a.secondary-nav-link {
 }
 
 .caption a, .text a, .external-link-overlay p {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 3%, #feff00 3%, #feff00 12%, rgba(0, 0, 0, 0) 12%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 44%, #feff00 44%, #feff00 100%);
+  background-size: 100% 200%;
+  transition: background-position 150ms cubic-bezier(0.12, 0.83, 0.63, 0.95);
+}
+.caption a:hover, .caption a:focus, .text a:hover, .text a:focus, .external-link-overlay p:hover, .external-link-overlay p:focus {
+  background-position: 0 100%;
+  transition: background-position 0.3s cubic-bezier(0.07, 0.73, 0.15, 0.98);
 }
 
 .text img {
@@ -237,7 +247,7 @@ a.photo-icon-link {
   opacity: 0.4;
   transition: all 150ms cubic-bezier(0.12, 0.83, 0.63, 0.95);
 }
-a.photo-icon-link:hover {
+a.photo-icon-link:hover, a.photo-icon-link:focus {
   transform: scale(1.2);
   transition: all 0.3s cubic-bezier(0.07, 0.73, 0.15, 0.98);
 }
